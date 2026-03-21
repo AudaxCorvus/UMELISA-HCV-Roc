@@ -1,0 +1,1 @@
+from views.assay_view import AssayView
