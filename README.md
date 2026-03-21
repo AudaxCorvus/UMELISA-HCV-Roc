@@ -221,8 +221,7 @@ Aunque el estándar de oro ideal para etiquetar muestras en zona gris es la dete
 
 **Caso 1: Procesamiento similar al algoritmo original de SUMA (descarta borderline y asigna peso 1 al resto)**  
 
-![[./Images/Case_1.jpg]]
-(Figura 5.1 – Caso 1)  
+![Figura 5.1 – Caso 1](assets/Case_1.jpg) 
 
 Se mantiene la lógica clásica del sistema SUMA:  
 - Valores CALC < NC – 15 % → Negativo con peso 1  
@@ -233,8 +232,7 @@ Esta estrategia replica exactamente cómo el software original gestiona los bord
 
 **Caso 2: Zona gris amplia y simétrica con descarte total** 
 
-![[./Images/Case_2.jpg]]
-(Figura 5.2 – Caso 2)  
+![Figura 5.2 – Caso 2](assets/Case_2.jpg) 
 
 Se define una zona gris más amplia (±15 % alrededor del NC = 0.3), es decir:  
 - CALC < NC – 15 % → Negativo con peso 1  
@@ -245,8 +243,7 @@ Esta aproximación es la más conservadora y elimina cualquier incertidumbre, pe
 
 **Caso 3: Uso de todos los valores con pesos diferenciados según posición** 
 
-![[./Images/Case_3.jpg]]
-(Figura 5.3 – Caso 3)  
+![Figura 5.3 – Caso 3](assets/Case_3.jpg)
 
 Se utilizan todos los valores de CALC sin descartar ninguno, pero se asignan pesos diferentes según la distancia al nivel de corte:  
 - CALC < NC – 15 % → Negativo con peso 1  
@@ -258,8 +255,7 @@ Esta estrategia es la más similar al primer diagrama que diseñamos y permite a
 
 **Caso 4: Nivel de corte simple sin descarte ni zona gris**  
 
-![[./Images/Case_4.jpg]]
-(Figura 5.4 – Caso 4)  
+![Figura 5.4 – Caso 4](assets/Case_4.jpg)
 
 Se elimina completamente la zona gris y se aplica un umbral binario estricto:  
 - CALC < 0.3 → Negativo con peso 1  
@@ -445,20 +441,16 @@ Para ilustrar el efecto práctico de los distintos niveles de corte generados po
 - **Rojo**: Positivo  
 - **Verde**: Borderline (BL)
 
-![[./Images/NC-0.3.png]]
-**Figura 6.1 – NC = 0.300 (algoritmo original SUMA)**  
+![Figura 6.1 – NC = 0.300 (algoritmo original SUMA)](assets/NC-0.3.png) 
 Clasificación de referencia con varios pocillos verdes (borderline) distribuidos en la placa.
 
-![[./Images/NC-0.301.png]]
-**Figura 6.2 – NC = 0.301**  
+![Figura 6.2 – NC = 0.301](assets/NC-0.301.png)
 **No se observa ningún cambio** respecto al NC = 0.300. Todos los resultados (positivos, negativos y borderline) permanecen idénticos. Esta mínima elevación del umbral es clínicamente neutra.
 
-![[./Images/NC-0.302.png]]
-**Figura 6.3 – NC = 0.302**  
+![Figura 6.3 – NC = 0.302](assets/NC-0.302.png) 
 Un pocillo que era borderline (verde) pasa a **negativo** (blanco). No aparecen nuevos borderline ni cambios en positivos. Este cambio es clínicamente seguro (reduce falsos positivos borderline), pero debe evaluarse si el paciente pertenece a grupo de alto riesgo.
 
-![[./Images/NC-0.346.png]]
-**Figura 6.4 – NC = 0.346**  
+![Figura 6.4 – NC = 0.346](assets/NC-0.346.png) 
 Se observan cambios más importantes:  
 - Un pocillo borderline pasa a negativo  
 - Aparecen **dos nuevos borderline** (pocillos que antes eran positivos)  
@@ -466,12 +458,10 @@ Se observan cambios más importantes:
 
 Este último cambio es **clínicamente inaceptable** en un tamizaje de hepatitis C, ya que genera un falso negativo que podría dejar sin diagnosticar a un paciente infectado. Aunque el algoritmo ROC lo propuso como óptimo en esa ventana de datos, este comportamiento obliga a descartar o ajustar ese umbral en la práctica.
 
-![[./Images/NC-0.347.png]]
-**Figura 6.5 – NC = 0.347**  
+![Figura 6.5 – NC = 0.347](assets/NC-0.347.png) 
 Idéntico comportamiento al NC = 0.346 (mismos cambios en los mismos pocillos). El riesgo de falso negativo persiste.
 
-![[./Images/NC-0.359.png]]
-**Figura 6.6 – NC = 0.359**  
+![Figura 6.6 – NC = 0.359](assets/NC-0.359.png)  
 El umbral más alto evaluado. Se intensifican los cambios:  
 - Múltiples pocillos positivos débiles pasan a borderline  
 - Varios borderline pasan a negativo  
