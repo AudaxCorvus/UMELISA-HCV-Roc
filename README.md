@@ -1,6 +1,3 @@
-Aquí tienes el archivo `README.md` completo para el repositorio de GitHub:
-
-```markdown
 # UMELISA HCV - Sistema de Análisis de Placas
 
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://python.org)
